@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if articles is defined and articles|length %}
+        {% for article in articles %}
+            <article>
+                <h2>{{ article.title }}</h2>
+
+                {{ article.content|raw }}
+            </article>
+        {% endfor %}
+    {% else %}
+        Mince pas d'articles
+    {% endif %}
+{% endblock %}
