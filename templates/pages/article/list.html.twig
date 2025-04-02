@@ -7,6 +7,8 @@
                 <h2>{{ article.title }}</h2>
 
                 {{ article.content|raw }}
+
+                <h4>{{ article.state }}</h4>
             </article>
         {% endfor %}
     {% else %}

@@ -13,7 +13,13 @@
     </head>
     <body>
         <header>
-            <h1>Mon site</h1>
+            <h1><a href="{{ path('index') }}">Mon site</a></h1>
+
+            <nav>
+                <ul>
+                    <li><a href="{{ path('article_index') }}">Liste des articles</a></li>
+                </ul>
+            </nav>
         </header>
 
         {% block body %}{% endblock %}
