@@ -9,6 +9,8 @@
                 {{ article.content|raw }}
 
                 <h4>{{ article.state }}</h4>
+
+                <a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
             </article>
         {% endfor %}
     {% else %}
