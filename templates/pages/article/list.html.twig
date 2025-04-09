@@ -1,19 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if articles is defined and articles|length %}
-        {% for article in articles %}
-            <article>
-                <h2>{{ article.title }}</h2>
-
-                {{ article.content|raw }}
-
-                <h4>{{ article.state }}</h4>
-
-                <a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
-            </article>
-        {% endfor %}
-    {% else %}
-        Mince pas d'articles
-    {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.state }}</td>
+                    <td>
+                        <a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center">Mince pas d'articles</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
