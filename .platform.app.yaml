@@ -10,7 +10,7 @@ mounts:
 disk: 256
 
 relationships:
-    mysql: 'mysql:mysql'
+    database: 'database:mysql'
 
 hooks:
   build: |
