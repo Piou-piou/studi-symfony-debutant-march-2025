@@ -2,10 +2,15 @@ name: app
 
 type: 'php:8.4'
 
+web:
+  locations:
+    "/":
+      root: "public"
+      expires: 1h
+      passthru: "/index.php"
+
 mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
+    "/var/cache": { source: local, source_path: var/cache }
 
 disk: 256
 
