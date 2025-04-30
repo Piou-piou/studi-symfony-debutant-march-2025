@@ -11,3 +11,16 @@ disk: 256
 
 relationships:
     mysql: 'mysql:mysql'
+
+hooks:
+  build: |
+    set -x -e
+
+    curl -s https://get.symfony.com/cloud/configurator | bash
+
+    symfony-build    
+
+  deploy: |
+    set -x -e
+
+    symfony-deploy
